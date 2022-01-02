@@ -1,0 +1,25 @@
+容器-提供給消費者服務 網頁 產品資料等等
+集群- 不只一台機器 很多台機器 一台掛掉還可以遷移到其他台上
+容錯 (fault tolerance)
+負載均衡 (load balance)
+docker (基本操作) - ---> docker (集群) ----> CI/CD (持續集成/持續部屬)---> Kubernetes (K8S)
+host (主機) guest (客機)
+docker namespace (命名空間) 隔離的技術
+lightweight (輕量化的虛擬技術) docker
+docker images 看鏡像
+docker run 讓他跑起來
+image 鏡像 container 容器
+i:互動 t: terminal 終端
+docker container ls 顯示目前有正在執行的容器 
+docker container stop 容器id (關閉容器)
+docker container ls 只會顯示正在運作的容器 (已經stop的不會顯示)
+docker container ls -a (顯示容器,包含stopped 容器)
+docker container start 容器id (或容器名稱)
+操作container id 時不用全部寫出...只要寫出可以跟其他id不同的就好...通常寫三到四位就可以
+netstat -tunlp | grep 80 檢查是否有開啟80 port
+容器可以把環境和程式包裝起來
+可以方便丟到其他電腦
+容器使用了 pid net ipc mnt uts user 命名空間
+容器讓他感覺是不同的電腦
+docker container rm 容器id (完全刪除容器)
+docker commit 容器id 新的鏡像名稱
