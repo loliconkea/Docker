@@ -1,0 +1,25 @@
+創建一個test-iris資料夾
+
+建立一個叫train_modle.py的檔案
+
+![GITHUB](https://github.com/loliconkea/Docker/blob/main/image/iris-01.png)
+
+yum install pythom-pip 先安裝pip
+
+如果pip無法升級 
+
+wget https://bootstrap.pypa.io/pip/2.7/get-pip.py 
+
+python get-pip.py
+
+pip install sklearn 安裝 sklearn
+
+python train_mode.py 可以得到一個modle.pkl
+
+建立app.run檔案
+
+![GITHUB](https://github.com/loliconkea/Docker/blob/main/image/iris-02.png)
+
+建立client.py檔案
+
+![GITHUB](https://github.com/loliconkea/Docker/blob/main/image/iris-03.png)
