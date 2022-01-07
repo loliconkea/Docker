@@ -1,0 +1,35 @@
+docker run -itd -p 8088:80 httpd 創一個httpd
+
+進入bash把htdocs裡面的index內容編輯成v1 version
+
+docker commit b1c httpd:v1 創造一個新的V1鏡像
+
+再次進入bash把htdocs裡面的index內容編輯成v2 version
+
+docker commit b1c httpd:v1 創造一個V2鏡像
+
+docker service create --replicas 3 --name web -p 8000:80 httpd:v1 用V1創造服務
+
+docker service update --image httpd:v2 web 把V1鏡像更新成V2版本
+
+![GITHUB](https://github.com/loliconkea/Docker/blob/main/image/swarm-05.png)
+
+docker service ps web 查看更新資訊
+
+docker service update --rollback web 回到上一個版本(只能記錄前一次的)
+
+docker node update --label-add env=test vm3 把VM3設定為測試環境
+
+docker node update --label-add env=prod vm2 把VM2設定為生產環境
+
+docker node inspect vm3 --pretty 把節點資訊顯示出來
+
+docker service create --constraint node.labels.env==test --replicas 3 --name myweb -p 8000:80 httpd 創造服務在有測試環境的虛擬機上
+
+![GITHUB](https://github.com/loliconkea/Docker/blob/main/image/swarm-06.png)
+
+docker service update --constraint-rm node.labels.env==test myweb 把服務名稱拿掉
+
+docker service update --constraint-add node.labels.env==prod myweb 並遷移到生產環境
+
+![GITHUB](https://github.com/loliconkea/Docker/blob/main/image/swarm-07.png)
